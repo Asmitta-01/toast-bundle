@@ -1,0 +1,68 @@
+{
+	"name": "asmitta-01/toast-bundle",
+	"description": "UX Toast display for your Symfony project.",
+	"license": "MIT",
+	"type": "symfony-bundle",
+	"keywords": [
+		"toast",
+		"ux",
+		"bootstrap",
+		"symfony"
+	],
+	"authors": [
+		{
+			"name": "Brayan Tiwa",
+			"email": "tiwabrayan@gmail.com"
+		}
+	],
+	"homepage": "https://github.com/Asmitta-01/ToastBundle",
+	"require": {
+		"php": ">=8.1",
+		"symfony/framework-bundle": "^6.0 || ^7.0",
+		"symfony/config": "^6.0 || ^7.0",
+		"symfony/dependency-injection": "^6.0 || ^7.0",
+		"symfony/event-dispatcher": "^6.0 || ^7.0",
+		"symfony/http-foundation": "^6.0 || ^7.0",
+		"symfony/http-kernel": "^6.0 || ^7.0",
+		"symfony/options-resolver": "^6.0 || ^7.0",
+		"symfony/security-core": "^6.0 || ^7.0",
+		"symfony/translation": "^6.0 || ^7.0",
+		"symfony/validator": "^6.0 || ^7.0",
+		"symfony/yaml": "^6.0 || ^7.0"
+	},
+	"require-dev": {
+		"doctrine/collections": "^1.8 || ^2.1",
+		"doctrine/dbal": "^3.1",
+		"doctrine/doctrine-bundle": "^2.0",
+		"phpstan/extension-installer": "^1.1",
+		"phpstan/phpstan": "^1.12",
+		"phpstan/phpstan-deprecation-rules": "^1.0",
+		"phpstan/phpstan-strict-rules": "^1.1",
+		"phpstan/phpstan-symfony": "^1.4",
+		"phpunit/phpunit": "^9.5",
+		"symfony/browser-kit": "^6.0 || ^7.0",
+		"symfony/css-selector": "^6.0 || ^7.0",
+		"symfony/mime": "^6.0 || ^7.0",
+		"symfony/phpunit-bridge": "^7.0",
+		"symfony/security-bundle": "^6.0 || ^7.0",
+		"symfony/twig-bundle": "^6.0 || ^7.0"
+	},
+	"minimum-stability": "stable",
+	"autoload": {
+		"psr-4": {
+			"Asmitta\\ToastBundle\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Asmitta\\ToastBundle\\Tests\\": "tests/"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"phpstan/extension-installer": true,
+			"symfony/flex": true
+		},
+		"sort-packages": true
+	}
+}

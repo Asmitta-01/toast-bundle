@@ -1,0 +1,7 @@
+/Tests export-ignore
+/.gitattributes export-ignore
+/.github export-ignore
+/.gitignore export-ignore
+/phpstan-config.neon export-ignore
+/phpstan.neon.dist export-ignore
+/phpunit.xml.dist export-ignore
