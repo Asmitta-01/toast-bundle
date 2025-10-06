@@ -1,0 +1,15 @@
+{% set bg_class = {
+    'success': 'bg-success',
+    'warning': 'bg-warning',
+    'danger': 'bg-danger',
+    'error': 'bg-danger',
+    'info': 'bg-info'
+}[type] ?? 'bg-info' %}
+
+<div class="toast" role="alert" data-bs-autohide="true" data-bs-delay="5000">
+	<div class="toast-header {{ bg_class }} text-white">
+		<strong class="me-auto">{{ toast_type|trans }}</strong>
+		<button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+	</div>
+	<div class="toast-body">{{ message }}</div>
+</div>

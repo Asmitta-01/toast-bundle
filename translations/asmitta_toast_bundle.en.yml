@@ -1,2 +1,4 @@
-title.info: Info
-title.warning: Warning
+info: Info
+warning: Warning
+success: Success
+danger: Error

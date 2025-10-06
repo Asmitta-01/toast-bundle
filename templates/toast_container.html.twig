@@ -1,0 +1,20 @@
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    {% for type, messages in flashes %}
+        {% for message in messages %}
+            {% include '@AsmittaToast/toast_item.html.twig' with {
+                'type': type,
+                'message': message,
+                'toast_type': toast_types[type] ?? 'info'
+            } %}
+        {% endfor %}
+    {% endfor %}
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var toasts = document.querySelectorAll(".toast");
+        toasts.forEach(function(toast) {
+            new bootstrap.Toast(toast).show();
+        });
+    });
+</script>
