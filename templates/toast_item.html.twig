@@ -1,15 +1,25 @@
-{% set bg_class = {
-    'success': 'bg-success',
-    'warning': 'bg-warning',
-    'danger': 'bg-danger',
-    'error': 'bg-danger',
-    'info': 'bg-info'
-}[type] ?? 'bg-info' %}
+{% set class = {
+    'success': 'text-bg-success',
+    'warning': 'text-bg-warning',
+    'danger': 'text-bg-danger',
+    'error': 'text-bg-danger',
+    'info': 'text-bg-info'
+}[type] ?? '' %}
 
-<div class="toast" role="alert" data-bs-autohide="true" data-bs-delay="5000">
-	<div class="toast-header {{ bg_class }} text-white">
+{% set accessibility_attr = {
+    'success': 'role="status" aria-live="polite"',
+    'warning': 'role="alert" aria-live="assertive"',
+    'danger': 'role="alert" aria-live="assertive"',
+    'error': 'role="alert" aria-live="assertive"',
+    'info': 'role="status" aria-live="polite"'
+}[type] ?? 'role="alert"' %}
+
+<div class="toast" {{ accessibility_attr }} data-bs-autohide="true" data-bs-delay="{{ timer }}">
+	<div class="toast-header {{ class }}">
 		<strong class="me-auto">{{ toast_type|trans }}</strong>
-		<button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+		{% if is_dismissible %}
+			<button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+		{% endif %}
 	</div>
 	<div class="toast-body">{{ message }}</div>
 </div>
