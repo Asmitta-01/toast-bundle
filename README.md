@@ -1,5 +1,7 @@
 # ToastBundle
 
+[![Static Analysis](https://github.com/Asmitta-01/toast-bundle/actions/workflows/static-analysis.yml/badge.svg)](https://github.com/Asmitta-01/toast-bundle/actions/workflows/static-analysis.yml)
+
 A Symfony bundle for displaying [Bootstrap toasts](https://getbootstrap.com/docs/5.3/components/toasts/) from flash messages.
 
 ## Installation
