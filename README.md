@@ -1,14 +1,12 @@
 # ToastBundle
 
-A Symfony bundle for displaying Bootstrap toast messages from flash messages.
+A Symfony bundle for displaying [Bootstrap toasts](https://getbootstrap.com/docs/5.3/components/toasts/) from flash messages.
 
 ## Installation
 
 Make sure Composer is installed globally, as explained in the
 [installation chapter](https://getcomposer.org/doc/00-intro.md)
 of the Composer documentation.
-
-### Applications that use Symfony Flex
 
 Open a command console, enter your project directory and execute:
 
@@ -18,7 +16,7 @@ composer require asmitta-01/toast-bundle
 
 ## Configuration
 
-Enable the bundle in `config/bundles.php`:
+if your application dont't use Symfony Flex, enable the bundle in `config/bundles.php`:
 
 ```php
 return [
@@ -26,6 +24,8 @@ return [
     Asmitta\ToastBundle\AsmittaToastBundle::class => ['all' => true],
 ];
 ```
+
+Create a configuration file at `config/packages/asmitta_toast.yaml`, read [docs](./docs/config.md).
 
 ## Usage
 
@@ -70,7 +70,11 @@ The bundle supports these flash message types:
 ## Features
 
 - Automatic mapping of flash message types to Bootstrap toast variants
-- Auto-hide after 5 seconds
-- Positioned at top-right corner
+- Configurable auto-hide timer (default: 5 seconds)
+- Flexible positioning (7 positions available)
+- Limit maximum toasts per type
+- Optional progress bar showing remaining time
+- Dismissible toasts with close button
 - Responsive design
-- No additional configuration required
+- Twig template-based rendering
+- Full configuration support
