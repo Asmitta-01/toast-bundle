@@ -1,8 +1,14 @@
 # Changelog
 
-## 0.2.0
+## 0.3.0
 
 ### Added
+
+- Progress bar line in toasts
+
+## 0.2.0
+
+Added
 
 - Configurable toast positioning (7 positions)
 - Customizable timer settings

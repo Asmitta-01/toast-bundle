@@ -1,0 +1,34 @@
+.toast {
+    overflow: hidden;
+}
+
+.toast .asmitta-toast-progress-bar {
+    --asmitta-toast-progress-color: var(--bs-primary);
+    --asmitta-toast-progress-timer: 5s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+}
+
+.toast .asmitta-toast-progress-bar:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--asmitta-toast-progress-color);
+}
+
+.asmitta-toast-progress-bar.active:before {
+    animation: asmitta-toast-progress-bar var(--asmitta-toast-progress-timer) linear forwards;
+}
+
+
+@keyframes asmitta-toast-progress-bar {
+    100% {
+        right: 100%;
+    }
+}

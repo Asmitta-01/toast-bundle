@@ -54,6 +54,12 @@ public function someAction(Request $request): Response
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 ```
 
+If you're going to show the progress bar in your toasts, also include this css file:
+
+```html
+<link href="{{ asset('bundles/asmittatoast/css/toast-progress-bar.css') }}" rel="stylesheet">
+```
+
 ### 3. Add the toast function to your template
 
 ```twig
@@ -73,7 +79,7 @@ The bundle supports these flash message types:
 
 - Automatic mapping of flash message types to Bootstrap toast variants
 - Configurable auto-hide timer (default: 5 seconds)
-- Flexible positioning (7 positions available)
+- Flexible positioning (7 positions available, see [ToastPosition Enum](./src/Enum/ToastPosition.php))
 - Limit maximum toasts per type
 - Optional progress bar showing remaining time
 - Dismissible toasts with close button

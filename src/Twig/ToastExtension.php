@@ -58,7 +58,8 @@ class ToastExtension extends AbstractExtension
             'toast_types' => $toastTypes,
             'position' => $this->mapToastPosition($this->toastContainerConfig->getPosition()),
             'timer' => $this->toastItemConfig->getTimer(),
-            'is_dismissible' => $this->toastItemConfig->isDismissible()
+            'is_dismissible' => $this->toastItemConfig->isDismissible(),
+            'show_progress_bar' => $this->toastItemConfig->showProgressBar(),
         ]);
     }
 
