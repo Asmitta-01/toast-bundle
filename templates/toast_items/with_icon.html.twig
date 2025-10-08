@@ -1,0 +1,35 @@
+{% set class = 'text-bg-' ~ type %}
+
+{% set accessibility_attr = {
+    'success': 'role="status" aria-live="polite"',
+    'warning': 'role="alert" aria-live="assertive"',
+    'danger': 'role="alert" aria-live="assertive"',
+    'info': 'role="status" aria-live="polite"'
+}[type] ?? 'role="alert"' %}
+
+{% set icon = {
+    info: 'bi-info-circle',
+    danger: 'bi-exclamation-circle',
+    warning: 'bi-exclamation-triangle',
+    success: 'bi-check-circle'
+}[type] ?? 'bi-info-circle' %}
+
+<div class="toast {% if type != 'info' %}{{ 'border-' ~ type }}{% endif %}" {{ accessibility_attr|raw }} data-bs-autohide="{{ timer > 0 ? 'true' : 'false' }}" data-bs-delay="{{ timer }}">
+	<div class="toast-header {% if type != 'info' %}{{ class }}{% endif %}">
+		<i class="{{ icon }} me-2"></i>
+		<strong class="me-auto">{{ toast_type|trans({}, 'asmitta_toast_bundle') }}</strong>
+
+		{% if is_dismissible %}
+			<button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+		{% endif %}
+	</div>
+	<div class="toast-body position-relative">
+		<div>
+			{{ message }}
+		</div>
+
+		{% if show_progress_bar and timer > 0 %}
+			<div class="asmitta-toast-progress-bar active" style="--asmitta-toast-progress-timer: {{ timer }}ms; --asmitta-toast-progress-color: var(--bs-{{ type }})"></div>
+		{% endif %}
+	</div>
+</div>

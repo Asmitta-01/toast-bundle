@@ -44,6 +44,7 @@ class AsmittaToastBundle extends AbstractBundle
             ->arg(0, $config['toast_item']['timer'])
             ->arg(1, $config['toast_item']['dismissible'])
             ->arg(2, $config['toast_item']['progress_bar'])
+            ->arg(3, $config['toast_item']['template'])
         ;
     }
 }

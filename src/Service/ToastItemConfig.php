@@ -7,7 +7,8 @@ class ToastItemConfig
     public function __construct(
         private int $timer,
         private bool $dismissible,
-        private bool $showProgressBar
+        private bool $showProgressBar,
+        private string $template
     ) {}
 
     public function getTimer(): int
@@ -23,5 +24,10 @@ class ToastItemConfig
     public function showProgressBar(): bool
     {
         return $this->showProgressBar;
+    }
+
+    public function getTemplate(): string
+    {
+        return $this->template;
     }
 }

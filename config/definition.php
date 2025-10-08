@@ -24,6 +24,7 @@ return static function (DefinitionConfigurator $definition): void {
                     ->integerNode('timer')->defaultValue(5000)->end()
                     ->booleanNode('dismissible')->defaultTrue()->end()
                     ->booleanNode('progress_bar')->defaultFalse()->end()
+                    ->stringNode('template')->isRequired()->end()
                 ->end()
             ->end()
         ->end()

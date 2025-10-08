@@ -13,6 +13,7 @@ asmitta_toast:
     timer: 5000
     progress_bar: false
     dismissible: true
+    template: '@AsmittaToast/toast_items/default.html.twig'
 ```
 
 ## Configuration Options
@@ -47,3 +48,8 @@ asmitta_toast:
 
 - Adds a close button to manually dismiss toasts
 - When `false`, toasts can only be dismissed by timer
+
+**template** (string, default: `@AsmittaToast/toast_items/default.html.twig`)
+
+- Twig template used to render individual toast items
+- More info in [the templating doc](./templating.md)

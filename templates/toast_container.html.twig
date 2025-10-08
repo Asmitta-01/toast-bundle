@@ -1,7 +1,7 @@
 <div class="toast-container position-fixed {{ position }} p-3">
     {% for type, messages in flashes %}
         {% for message in messages %}
-            {% include '@AsmittaToast/toast_item.html.twig' with {
+            {% include template with {
                 'type': type,
                 'message': message,
                 'toast_type': toast_types[type] ?? 'info',

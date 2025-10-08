@@ -60,6 +60,7 @@ class ToastExtension extends AbstractExtension
             'timer' => $this->toastItemConfig->getTimer(),
             'is_dismissible' => $this->toastItemConfig->isDismissible(),
             'show_progress_bar' => $this->toastItemConfig->showProgressBar(),
+            'template' => $this->toastItemConfig->getTemplate(),
         ]);
     }
 

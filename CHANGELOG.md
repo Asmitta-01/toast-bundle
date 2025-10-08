@@ -5,6 +5,7 @@
 ### Added
 
 - Progress bar line in toasts
+- Customizable toast items templates
 
 ## 0.2.0
 
