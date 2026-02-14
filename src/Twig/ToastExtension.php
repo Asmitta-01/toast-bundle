@@ -31,12 +31,12 @@ class ToastExtension extends AbstractExtension
     public function renderToasts(): string
     {
         $mainRequest = $this->requestStack->getMainRequest();
-        if ($mainRequest === null) {
+        if ($mainRequest === null || !$mainRequest->hasSession()) {
             return '';
         }
 
         /** @var FlashBagInterface $flashBag */
-        $flashBag = $this->requestStack->getSession()->getBag('flashes');
+        $flashBag = $mainRequest->getSession()->getBag('flashes');
         $flashes = $flashBag->all();
         if (count($flashes) == 0) {
             return '';
