@@ -36,15 +36,18 @@ class AsmittaToastBundle extends AbstractBundle
     {
         $container->import('../config/services.php');
 
+        $containerConfig = $config['toast_container'] ?? [];
+        $itemConfig = $config['toast_item'] ?? [];
+
         $container->services()
             ->get('asmitta_toast.toast_container')
-            ->arg(0, $config['toast_container']['max_toasts'])
-            ->arg(1, $config['toast_container']['position'])
+            ->arg(0, $containerConfig['max_toasts'] ?? null)
+            ->arg(1, $containerConfig['position'] ?? 'bottom-center')
             ->get('asmitta_toast.toast_item')
-            ->arg(0, $config['toast_item']['timer'])
-            ->arg(1, $config['toast_item']['dismissible'])
-            ->arg(2, $config['toast_item']['progress_bar'])
-            ->arg(3, $config['toast_item']['template'])
+            ->arg(0, $itemConfig['timer'] ?? 5000)
+            ->arg(1, $itemConfig['dismissible'] ?? true)
+            ->arg(2, $itemConfig['progress_bar'] ?? false)
+            ->arg(3, $itemConfig['template'] ?? '@AsmittaToast/toast_items/default.html.twig')
         ;
     }
 }
