@@ -1,8 +1,14 @@
 # Changelog
 
+## 0.3.1
+
+### Fixed
+
+- Fallback defaults when config is missing during container build
+
 ## 0.3.0
 
-### Added
+Added
 
 - Progress bar line in toasts
 - Customizable toast items templates
