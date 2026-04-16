@@ -11,6 +11,7 @@ use Asmitta\ToastBundle\Service\ToastContainerConfig;
 use Asmitta\ToastBundle\Service\ToastItemConfig;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
+use Symfony\Component\HttpFoundation\Session\FlashBagAwareSessionInterface;
 
 class ToastExtension extends AbstractExtension
 {
@@ -35,8 +36,11 @@ class ToastExtension extends AbstractExtension
             return '';
         }
 
+        $session = $mainRequest->getSession();
         /** @var FlashBagInterface $flashBag */
-        $flashBag = $mainRequest->getSession()->getBag('flashes');
+        $flashBag = $session instanceof FlashBagAwareSessionInterface
+            ? $session->getFlashBag()
+            : $session->getBag('flashes');
         $flashes = $flashBag->all();
         if (count($flashes) == 0) {
             return '';
