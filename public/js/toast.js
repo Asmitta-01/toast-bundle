@@ -1,23 +1,10 @@
-<div class="asmitta-toast-container asmitta-position-fixed {{ position }} asmitta-p-3">
-    {% for type, messages in flashes %}
-        {% for message in messages %}
-            {% include template with {
-                'type': type,
-                'message': message,
-                'toast_type': toast_types[type] ?? 'info',
-                'timer': timer,
-                'is_dismissible': is_dismissible
-            } %}
-        {% endfor %}
-    {% endfor %}
-</div>
-
-<script>
 (function () {
+    'use strict';
+
     function showToast(toastEl) {
         if (toastEl.classList.contains('show')) return;
         toastEl.style.display = 'block';
-        void toastEl.offsetHeight;
+        void toastEl.offsetHeight; // force reflow so opacity transition fires
         toastEl.classList.add('show');
     }
 
@@ -25,7 +12,9 @@
         if (!toastEl.classList.contains('show')) return;
         toastEl.classList.remove('show');
         var duration = parseFloat(getComputedStyle(toastEl).transitionDuration) * 1000;
-        setTimeout(function () { toastEl.style.display = ''; }, duration || 150);
+        setTimeout(function () {
+            toastEl.style.display = '';
+        }, duration || 150);
     }
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -37,13 +26,16 @@
 
             var dismissBtn = toastEl.querySelector('[data-asmitta-dismiss="toast"]');
             if (dismissBtn) {
-                dismissBtn.addEventListener('click', function () { hideToast(toastEl); });
+                dismissBtn.addEventListener('click', function () {
+                    hideToast(toastEl);
+                });
             }
 
             if (autohide && delay > 0) {
-                setTimeout(function () { hideToast(toastEl); }, delay);
+                setTimeout(function () {
+                    hideToast(toastEl);
+                }, delay);
             }
         });
     });
 })();
-</script>

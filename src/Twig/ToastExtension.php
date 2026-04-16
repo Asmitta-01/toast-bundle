@@ -78,19 +78,18 @@ class ToastExtension extends AbstractExtension
      * Maps toast position enum to corresponding CSS classes for positioning
      * @param string $position The position value to map
      * @return string CSS classes for positioning the toast
-     * @link See https://getbootstrap.com/docs/5.3/components/toasts/#placement
      */
     private function mapToastPosition(string $position): string
     {
         $position = ToastPosition::from($position);
         return match ($position) {
-            ToastPosition::TOP_LEFT => 'top-0 start-0',
-            ToastPosition::TOP_RIGHT => 'top-0 end-0',
-            ToastPosition::TOP_CENTER => 'top-0 start-50 translate-middle-x',
-            ToastPosition::BOTTOM_LEFT => 'bottom-0 start-0',
-            ToastPosition::BOTTOM_RIGHT => 'bottom-0 end-0',
-            ToastPosition::BOTTOM_CENTER => 'bottom-0 start-50 translate-middle-x',
-            ToastPosition::CENTER => 'top-50 start-50 translate-middle',
+            ToastPosition::TOP_LEFT => 'asmitta-top-0 asmitta-start-0',
+            ToastPosition::TOP_RIGHT => 'asmitta-top-0 asmitta-end-0',
+            ToastPosition::TOP_CENTER => 'asmitta-top-0 asmitta-start-50 asmitta-translate-middle-x',
+            ToastPosition::BOTTOM_LEFT => 'asmitta-bottom-0 asmitta-start-0',
+            ToastPosition::BOTTOM_RIGHT => 'asmitta-bottom-0 asmitta-end-0',
+            ToastPosition::BOTTOM_CENTER => 'asmitta-bottom-0 asmitta-start-50 asmitta-translate-middle-x',
+            ToastPosition::CENTER => 'asmitta-top-50 asmitta-start-50 asmitta-translate-middle',
         };
     }
 }

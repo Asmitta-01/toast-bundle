@@ -1,9 +1,9 @@
-.toast {
+.asmitta-toast {
     overflow: hidden;
 }
 
-.toast .asmitta-toast-progress-bar {
-    --asmitta-toast-progress-color: var(--bs-primary);
+.asmitta-toast .asmitta-toast-progress-bar {
+    --asmitta-toast-progress-color: #0d6efd;
     --asmitta-toast-progress-timer: 5s;
     position: absolute;
     bottom: 0;

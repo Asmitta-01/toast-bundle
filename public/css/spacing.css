@@ -1,0 +1,40 @@
+.asmitta-position-fixed {
+    position: fixed !important;
+}
+
+.asmitta-p-3 {
+    padding: 1rem !important;
+}
+
+/* Toast container positioning */
+.asmitta-top-0 {
+    top: 0 !important;
+}
+
+.asmitta-bottom-0 {
+    bottom: 0 !important;
+}
+
+.asmitta-start-0 {
+    left: 0 !important;
+}
+
+.asmitta-end-0 {
+    right: 0 !important;
+}
+
+.asmitta-start-50 {
+    left: 50% !important;
+}
+
+.asmitta-top-50 {
+    top: 50% !important;
+}
+
+.asmitta-translate-middle-x {
+    transform: translateX(-50%) !important;
+}
+
+.asmitta-translate-middle {
+    transform: translate(-50%, -50%) !important;
+}
