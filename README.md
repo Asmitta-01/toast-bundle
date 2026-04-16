@@ -2,7 +2,7 @@
 
 [![Static Analysis](https://github.com/Asmitta-01/toast-bundle/actions/workflows/static-analysis.yml/badge.svg)](https://github.com/Asmitta-01/toast-bundle/actions/workflows/static-analysis.yml)
 
-A Symfony bundle for displaying [Bootstrap toasts](https://getbootstrap.com/docs/5.3/components/toasts/) from flash messages.
+A Symfony bundle for displaying toast notifications from flash messages, with no Bootstrap CSS or JavaScript dependency.
 
 ## Installation
 
@@ -16,9 +16,17 @@ Open a command console, enter your project directory and execute:
 composer require asmitta-01/toast-bundle
 ```
 
+The bundle is compatible with Symfony 6, 7 and 8.
+
+If your application exposes bundle assets through the public directory, install them after requiring the package:
+
+```console
+php bin/console assets:install
+```
+
 ## Configuration
 
-if your application dont't use Symfony Flex, enable the bundle in `config/bundles.php`:
+If your application doesn't use Symfony Flex, enable the bundle in `config/bundles.php`:
 
 ```php
 return [
@@ -27,7 +35,7 @@ return [
 ];
 ```
 
-Create a configuration file at `config/packages/asmitta_toast.yaml`, read [docs](./docs/config.md).
+Create a configuration file at `config/packages/asmitta_toast.yaml`, see [docs/config.md](./docs/config.md).
 
 ## Usage
 
@@ -47,17 +55,25 @@ public function someAction(Request $request): Response
 }
 ```
 
-### 2. Include Bootstrap CSS and JS in your template
+### 2. Include the bundle CSS assets in your template
 
 ```html
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<link href="{{ asset('bundles/asmittaToast/css/toast.css') }}" rel="stylesheet">
+<link href="{{ asset('bundles/asmittaToast/css/spacing.css') }}" rel="stylesheet">
 ```
 
-If you're going to show the progress bar in your toasts, also include this css file:
+If you use the progress bar option, also include:
 
 ```html
-<link href="{{ asset('bundles/asmittatoast/css/toast-progress-bar.css') }}" rel="stylesheet">
+<link href="{{ asset('bundles/asmittaToast/css/toast-progress-bar.css') }}" rel="stylesheet">
+```
+
+The bundle ships its own toast behavior, so no Bootstrap JavaScript include is required.
+
+If you use the `with_icon` or `colored_icon` templates, include Bootstrap Icons in your page:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 ```
 
 ### 3. Add the toast function to your template
@@ -77,7 +93,7 @@ The bundle supports these flash message types:
 
 ## Features
 
-- Automatic mapping of flash message types to Bootstrap toast variants
+- Automatic mapping of flash message types to toast variants
 - Configurable auto-hide timer (default: 5 seconds)
 - Flexible positioning (7 positions available, see [ToastPosition Enum](./src/Enum/ToastPosition.php))
 - Limit maximum toasts per type
@@ -86,3 +102,11 @@ The bundle supports these flash message types:
 - Responsive design
 - Twig template-based rendering
 - Full configuration support
+- No Bootstrap CSS or JavaScript dependency
+- Symfony 6, 7 and 8 compatibility
+
+## Breaking Changes In 0.4.0
+
+- The root toast class changed from `toast` to `asmitta-toast`
+- Bootstrap toast classes and utility classes were replaced by `asmitta-` prefixed classes
+- Bootstrap JavaScript is no longer used or required for rendering toasts

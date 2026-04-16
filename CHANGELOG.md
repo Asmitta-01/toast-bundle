@@ -1,8 +1,24 @@
 # Changelog
 
-## 0.3.1
+## 0.4.0
+
+### Added
+
+- Symfony 8 compatibility
+
+### Changed
+
+- Removed the Bootstrap CSS and JavaScript runtime dependency for toast rendering
+- Toast markup and utility classes are now prefixed with `asmitta-`
+- The root toast CSS class is now `asmitta-toast` instead of `toast`
 
 ### Fixed
+
+- Flash bag access is now compatible with Symfony 8 session handling
+
+## 0.3.1
+
+Fixed
 
 - Fallback defaults when config is missing during container build
 
