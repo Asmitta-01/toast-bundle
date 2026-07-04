@@ -2,6 +2,7 @@
 
 namespace Asmitta\ToastBundle;
 
+use Asmitta\ToastBundle\Twig\ToastExtension;
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
@@ -36,10 +37,13 @@ class AsmittaToastBundle extends AbstractBundle
     {
         $container->import('../config/services.php');
 
+        $autoLoadAssets = $config['auto_load_assets'] ?? true;
         $containerConfig = $config['toast_container'] ?? [];
         $itemConfig = $config['toast_item'] ?? [];
 
         $container->services()
+            ->get(ToastExtension::class)
+            ->arg('$autoLoadAssets', $autoLoadAssets)
             ->get('asmitta_toast.toast_container')
             ->arg(0, $containerConfig['max_toasts'] ?? null)
             ->arg(1, $containerConfig['position'] ?? 'bottom-center')

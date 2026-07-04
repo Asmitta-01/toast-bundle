@@ -55,20 +55,13 @@ public function someAction(Request $request): Response
 }
 ```
 
-### 2. Include the bundle CSS assets in your template
+### 2. Render toasts in your template
 
-```html
-<link href="{{ asset('bundles/asmittaToast/css/toast.css') }}" rel="stylesheet">
-<link href="{{ asset('bundles/asmittaToast/css/spacing.css') }}" rel="stylesheet">
+```twig
+{{ render_toasts() }}
 ```
 
-If you use the progress bar option, also include:
-
-```html
-<link href="{{ asset('bundles/asmittaToast/css/toast-progress-bar.css') }}" rel="stylesheet">
-```
-
-The bundle ships its own toast behavior, so no Bootstrap JavaScript include is required.
+By default, the bundle automatically loads its CSS and JavaScript assets when rendering toasts.
 
 If you use the `with_icon` or `colored_icon` templates, include Bootstrap Icons in your page:
 
@@ -76,10 +69,22 @@ If you use the `with_icon` or `colored_icon` templates, include Bootstrap Icons 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 ```
 
-### 3. Add the toast function to your template
+### 3. Optional: disable automatic asset loading
 
-```twig
-{{ render_toasts() }}
+If you prefer to manage assets manually (for example with your own pipeline), disable auto loading:
+
+```yaml
+asmitta_toast:
+    auto_load_assets: false
+```
+
+Then include the assets yourself:
+
+```html
+<link href="{{ asset('bundles/asmittaToast/css/toast.css') }}" rel="stylesheet">
+<link href="{{ asset('bundles/asmittaToast/css/spacing.css') }}" rel="stylesheet">
+<link href="{{ asset('bundles/asmittaToast/css/toast-progress-bar.css') }}" rel="stylesheet"> <!-- optional -->
+<script src="{{ asset('bundles/asmittaToast/js/toast.js') }}"></script>
 ```
 
 ## Toast Types
@@ -104,6 +109,7 @@ The bundle supports these flash message types:
 - Full configuration support
 - No Bootstrap CSS or JavaScript dependency
 - Symfony 6, 7 and 8 compatibility
+- Automatic CSS/JS loading by default
 
 ## Breaking Changes In 0.4.0
 

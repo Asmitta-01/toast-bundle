@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.4.1
+
+### Changed
+
+- Automatic CSS/JS asset loading is now enabled by default through `render_toasts()`
+- Added configuration option `auto_load_assets` (default: `true`) to opt out of automatic loading
+
+### Fixed
+
+- Removed duplicate toast initialization risk when scripts are included more than once
+
 ## 0.4.0
 
 ### Added

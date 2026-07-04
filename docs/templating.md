@@ -1,5 +1,14 @@
 # Templating
 
+When `auto_load_assets` is enabled (default), `render_toasts()` automatically injects:
+
+- `bundles/asmittaToast/css/toast.css`
+- `bundles/asmittaToast/css/spacing.css`
+- `bundles/asmittaToast/css/toast-progress-bar.css` (only when progress bar is enabled)
+- `bundles/asmittaToast/js/toast.js`
+
+If you disable `auto_load_assets`, include those assets manually.
+
 The bundle provides three(03) toast items templates actually:
 
 - `@AsmittaToast/toast_items/default.html.twig` (Default)

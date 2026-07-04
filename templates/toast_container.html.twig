@@ -1,49 +1,26 @@
+{% if auto_load_assets %}
+	<style>
+		{{source('@AsmittaToast/css/toast.css.twig')}}
+		{% if show_progress_bar %}
+			{{source('@AsmittaToast/css/toast-progress-bar.css.twig')}}
+		{% endif %}
+	</style>
+{% endif %}
+
 <div class="asmitta-toast-container asmitta-position-fixed {{ position }} asmitta-p-3">
-    {% for type, messages in flashes %}
-        {% for message in messages %}
-            {% include template with {
+	{% for type, messages in flashes %}
+		{% for message in messages %}
+			{% include template with {
                 'type': type,
                 'message': message,
                 'toast_type': toast_types[type] ?? 'info',
                 'timer': timer,
                 'is_dismissible': is_dismissible
             } %}
-        {% endfor %}
-    {% endfor %}
+		{% endfor %}
+	{% endfor %}
 </div>
 
-<script>
-(function () {
-    function showToast(toastEl) {
-        if (toastEl.classList.contains('show')) return;
-        toastEl.style.display = 'block';
-        void toastEl.offsetHeight;
-        toastEl.classList.add('show');
-    }
-
-    function hideToast(toastEl) {
-        if (!toastEl.classList.contains('show')) return;
-        toastEl.classList.remove('show');
-        var duration = parseFloat(getComputedStyle(toastEl).transitionDuration) * 1000;
-        setTimeout(function () { toastEl.style.display = ''; }, duration || 150);
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.asmitta-toast').forEach(function (toastEl) {
-            var autohide = toastEl.getAttribute('data-asmitta-autohide') !== 'false';
-            var delay = parseInt(toastEl.getAttribute('data-asmitta-delay') || '5000', 10);
-
-            showToast(toastEl);
-
-            var dismissBtn = toastEl.querySelector('[data-asmitta-dismiss="toast"]');
-            if (dismissBtn) {
-                dismissBtn.addEventListener('click', function () { hideToast(toastEl); });
-            }
-
-            if (autohide && delay > 0) {
-                setTimeout(function () { hideToast(toastEl); }, delay);
-            }
-        });
-    });
-})();
-</script>
+{% if auto_load_assets %}
+	<script src="{{ asset('bundles/asmittaToast/js/toast.js') }}"></script>
+{% endif %}

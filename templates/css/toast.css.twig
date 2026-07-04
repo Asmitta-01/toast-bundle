@@ -1,0 +1,242 @@
+.asmitta-position-fixed {
+    position: fixed !important;
+}
+
+.asmitta-p-3 {
+    padding: 1rem !important;
+}
+
+/* Toast container positioning */
+.asmitta-top-0 {
+    top: 0 !important;
+}
+
+.asmitta-bottom-0 {
+    bottom: 0 !important;
+}
+
+.asmitta-start-0 {
+    left: 0 !important;
+}
+
+.asmitta-end-0 {
+    right: 0 !important;
+}
+
+.asmitta-start-50 {
+    left: 50% !important;
+}
+
+.asmitta-top-50 {
+    top: 50% !important;
+}
+
+.asmitta-translate-middle-x {
+    transform: translateX(-50%) !important;
+}
+
+.asmitta-translate-middle {
+    transform: translate(-50%, -50%) !important;
+}
+
+:root {
+    --asmitta-color-success: #198754;
+    --asmitta-color-danger: #dc3545;
+    --asmitta-color-warning: #ffc107;
+    --asmitta-color-info: #0dcaf0;
+    --asmitta-color-error: #dc3545;
+}
+
+.asmitta-toast {
+    --asmitta-toast-zindex: 1090;
+    --asmitta-toast-padding-x: 0.75rem;
+    --asmitta-toast-padding-y: 0.5rem;
+    --asmitta-toast-spacing: 1.5rem;
+    --asmitta-toast-max-width: 350px;
+    --asmitta-toast-font-size: 0.875rem;
+    --asmitta-toast-color: inherit;
+    --asmitta-toast-bg: rgba(255, 255, 255, 0.85);
+    --asmitta-toast-border-width: 1px;
+    --asmitta-toast-border-color: rgba(0, 0, 0, 0.175);
+    --asmitta-toast-border-radius: 0.375rem;
+    --asmitta-toast-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --asmitta-toast-header-color: #6c757d;
+    --asmitta-toast-header-bg: rgba(255, 255, 255, 0.85);
+    --asmitta-toast-header-border-color: rgba(0, 0, 0, 0.175);
+    width: var(--asmitta-toast-max-width);
+    max-width: 100%;
+    font-size: var(--asmitta-toast-font-size);
+    color: var(--asmitta-toast-color);
+    pointer-events: auto;
+    background-color: var(--asmitta-toast-bg);
+    background-clip: padding-box;
+    border: var(--asmitta-toast-border-width) solid var(--asmitta-toast-border-color);
+    box-shadow: var(--asmitta-toast-box-shadow);
+    border-radius: var(--asmitta-toast-border-radius);
+    opacity: 0;
+    transition: opacity 0.15s linear;
+}
+
+.asmitta-toast.show {
+    opacity: 1;
+}
+
+.asmitta-toast.showing {
+    opacity: 0;
+}
+
+.asmitta-toast:not(.show) {
+    display: none;
+}
+
+.asmitta-toast-container {
+    --asmitta-toast-zindex: 1090;
+    position: absolute;
+    z-index: var(--asmitta-toast-zindex);
+    width: max-content;
+    max-width: 100%;
+    pointer-events: none;
+}
+
+.asmitta-toast-container> :not(:last-child) {
+    margin-bottom: var(--asmitta-toast-spacing, 1.5rem);
+}
+
+.asmitta-toast-header {
+    display: flex;
+    align-items: center;
+    padding: var(--asmitta-toast-padding-y) var(--asmitta-toast-padding-x);
+    color: var(--asmitta-toast-header-color);
+    background-color: var(--asmitta-toast-header-bg);
+    background-clip: padding-box;
+    border-bottom: var(--asmitta-toast-border-width) solid var(--asmitta-toast-header-border-color);
+    border-top-left-radius: calc(var(--asmitta-toast-border-radius) - var(--asmitta-toast-border-width));
+    border-top-right-radius: calc(var(--asmitta-toast-border-radius) - var(--asmitta-toast-border-width));
+}
+
+.asmitta-toast-header .asmitta-toast-close {
+    margin-right: calc(-0.5 * var(--asmitta-toast-padding-x));
+    margin-left: var(--asmitta-toast-padding-x);
+}
+
+.asmitta-toast-body {
+    padding: var(--asmitta-toast-padding-x);
+    word-wrap: break-word;
+}
+
+/* --- Color variants --- */
+
+.asmitta-toast-bg-success {
+    background-color: #198754 !important;
+    color: #fff !important;
+    --asmitta-toast-header-border-color: rgba(255, 255, 255, 0.2);
+}
+
+.asmitta-toast-bg-danger {
+    background-color: #dc3545 !important;
+    color: #fff !important;
+    --asmitta-toast-header-border-color: rgba(255, 255, 255, 0.2);
+}
+
+.asmitta-toast-bg-warning {
+    background-color: #ffc107 !important;
+    color: #000 !important;
+    --asmitta-toast-header-border-color: rgba(0, 0, 0, 0.1);
+}
+
+.asmitta-toast-bg-info {
+    background-color: #0dcaf0 !important;
+    color: #000 !important;
+    --asmitta-toast-header-border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Border color variants (for with_icon template) */
+.asmitta-toast-border-success {
+    border-color: #198754 !important;
+}
+
+.asmitta-toast-border-danger {
+    border-color: #dc3545 !important;
+}
+
+.asmitta-toast-border-warning {
+    border-color: #ffc107 !important;
+}
+
+/* Text color variants (for colored_icon template icons) */
+.asmitta-toast-text-success {
+    color: #198754 !important;
+}
+
+.asmitta-toast-text-danger {
+    color: #dc3545 !important;
+}
+
+.asmitta-toast-text-warning {
+    color: #ffc107 !important;
+}
+
+.asmitta-toast-text-info {
+    color: #0dcaf0 !important;
+}
+
+/* --- Close button --- */
+
+.asmitta-toast-close {
+    box-sizing: content-box;
+    width: 1em;
+    height: 1em;
+    padding: 0.25em;
+    color: #000;
+    background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center / 1em auto no-repeat;
+    border: 0;
+    border-radius: 0.375rem;
+    opacity: 0.5;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.asmitta-toast-close:hover {
+    opacity: 0.75;
+}
+
+/* Invert close button on dark-background headers */
+.asmitta-toast-bg-success .asmitta-toast-close,
+.asmitta-toast-bg-danger .asmitta-toast-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* --- Layout helpers used by toast_items templates --- */
+
+.asmitta-toast-title {
+    margin-right: auto;
+    font-weight: 600;
+}
+
+/* colored_icon layout */
+.asmitta-toast.asmitta-toast-with-icon {
+    display: flex;
+    position: relative;
+}
+
+.asmitta-toast.asmitta-toast-with-icon .asmitta-toast-icon {
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.asmitta-toast.asmitta-toast-with-icon .asmitta-toast-content {
+    width: 100%;
+}
+
+.asmitta-toast.asmitta-toast-with-icon .asmitta-toast-header {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* with_icon layout */
+.asmitta-toast-header-icon {
+    margin-right: 0.5rem;
+}
+

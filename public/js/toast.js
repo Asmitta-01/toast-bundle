@@ -1,6 +1,11 @@
 (function () {
     'use strict';
 
+    if (window.__asmittaToastInitialized) {
+        return;
+    }
+    window.__asmittaToastInitialized = true;
+
     function showToast(toastEl) {
         if (toastEl.classList.contains('show')) return;
         toastEl.style.display = 'block';
@@ -19,6 +24,11 @@
 
     document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('.asmitta-toast').forEach(function (toastEl) {
+            if (toastEl.dataset.asmittaInitialized === 'true') {
+                return;
+            }
+            toastEl.dataset.asmittaInitialized = 'true';
+
             var autohide = toastEl.getAttribute('data-asmitta-autohide') !== 'false';
             var delay = parseInt(toastEl.getAttribute('data-asmitta-delay') || '5000', 10);
 

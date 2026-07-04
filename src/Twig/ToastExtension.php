@@ -19,7 +19,8 @@ class ToastExtension extends AbstractExtension
         private RequestStack $requestStack,
         private Environment $twig,
         private ToastContainerConfig $toastContainerConfig,
-        private ToastItemConfig $toastItemConfig
+        private ToastItemConfig $toastItemConfig,
+        private bool $autoLoadAssets
     ) {}
 
     public function getFunctions(): array
@@ -65,6 +66,7 @@ class ToastExtension extends AbstractExtension
             'is_dismissible' => $this->toastItemConfig->isDismissible(),
             'show_progress_bar' => $this->toastItemConfig->showProgressBar(),
             'template' => $this->toastItemConfig->getTemplate(),
+            'auto_load_assets' => $this->autoLoadAssets,
         ]);
     }
 

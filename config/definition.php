@@ -7,6 +7,7 @@ use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
 return static function (DefinitionConfigurator $definition): void {
     $definition->rootNode()
         ->children()
+            ->booleanNode('auto_load_assets')->defaultTrue()->end()
             ->arrayNode('toast_container')
                 ->addDefaultsIfNotSet()
                 ->children()

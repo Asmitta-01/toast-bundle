@@ -17,7 +17,6 @@ return static function (ContainerConfigurator $container): void {
         ->exclude([
             '../src/DependencyInjection/',
             '../src/Entity/',
-            '../src/Service/',
             '../src/Kernel.php',
             '../src/Tests/',
         ]);
@@ -33,7 +32,10 @@ return static function (ContainerConfigurator $container): void {
             new Reference('request_stack'),
             new Reference('twig'),
             new Reference('asmitta_toast.toast_container'),
-            new Reference('asmitta_toast.toast_item')
+            new Reference('asmitta_toast.toast_item'),
+            false,
         ])
         ->tag('twig.extension');
+
+    $services->alias('asmitta_toast.twig.extension', ToastExtension::class);
 };

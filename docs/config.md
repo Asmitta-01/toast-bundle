@@ -6,6 +6,7 @@ Create a configuration file at `config/packages/asmitta_toast.yaml`:
 
 ```yaml
 asmitta_toast:
+  auto_load_assets: true
   toast_container:
     position: bottom-center
     max_toasts: null
@@ -17,6 +18,13 @@ asmitta_toast:
 ```
 
 ## Configuration Options
+
+### auto_load_assets
+
+**auto_load_assets** (boolean, default: `true`)
+
+- Automatically includes bundle CSS and JavaScript when `render_toasts()` is called
+- Set to `false` if you want to include assets manually
 
 ### toast_container
 
